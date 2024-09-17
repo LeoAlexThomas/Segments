@@ -9,6 +9,7 @@ import {
   TextProps,
   VStack,
 } from "@chakra-ui/react";
+import isNil from "lodash/isNil";
 import get from "lodash/get";
 import {
   FieldValues,
@@ -21,7 +22,7 @@ interface CustomInputFieldProps<T extends FieldValues> {
   name: Path<T>;
   hForm: UseFormReturn<T>;
   rules: RegisterOptions<T>;
-  title: string;
+  title?: string;
   titleProps?: TextProps;
 }
 
@@ -49,19 +50,21 @@ function InputField<T extends FieldValues>({
       isInvalid={Boolean(error)}
     >
       <VStack alignItems="stretch">
-        <Text
-          fontSize={["12px", null, "16px"]}
-          fontWeight={500}
-          lineHeight="1.2"
-          {...titleProps}
-        >
-          {title}{" "}
-          {Boolean(rules.required) ? (
-            <chakra.span color="#ff5b5b">*</chakra.span>
-          ) : (
-            ""
-          )}
-        </Text>
+        {!isNil(title) && (
+          <Text
+            fontSize={["12px", null, "16px"]}
+            fontWeight={500}
+            lineHeight="1.2"
+            {...titleProps}
+          >
+            {title}{" "}
+            {Boolean(rules.required) ? (
+              <chakra.span color="#ff5b5b">*</chakra.span>
+            ) : (
+              ""
+            )}
+          </Text>
+        )}
         <Box>
           <Input
             fontSize="14px"
