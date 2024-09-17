@@ -104,14 +104,10 @@ const HomePage = () => {
     // NOTE: sending segment data to server
     makeApiCall({
       apiFn: () =>
-        api(
-          "/",
-          {
-            method: "GET",
-            data: requestObj,
-          },
-          `https://webhook.site/1c6e32cd-3281-4c0d-948f-82e2591206b4`
-        ),
+        api("/", {
+          method: "POST",
+          data: requestObj,
+        }),
     });
   };
 

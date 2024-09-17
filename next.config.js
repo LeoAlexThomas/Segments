@@ -5,19 +5,19 @@ const getEnvConfig = () => {
     case "dev":
       return {
         env: "dev",
-        apiUrl: "http://localhost:3001/api",
+        apiUrl: "https://webhook.site/1c6e32cd-3281-4c0d-948f-82e2591206b4",
         websiteUrl: "http://localhost:3000",
       };
     case "stage":
       return {
         env: "stage",
-        apiUrl: "http://localhost:3001/api",
+        apiUrl: "https://webhook.site/1c6e32cd-3281-4c0d-948f-82e2591206b4",
         websiteUrl: "https://segments-stage.com/api",
       };
     case "prod":
       return {
         env: "prod",
-        apiUrl: "https://localhost:3001/api",
+        apiUrl: "https://webhook.site/1c6e32cd-3281-4c0d-948f-82e2591206b4",
         websiteUrl: "https://segments.com/api",
       };
   }
